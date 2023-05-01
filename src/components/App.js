@@ -1,13 +1,26 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import NavBar from "./NavBar";
-import Home from "./Home";
-import Actors from "./Actors";
-import Directors from "./Directors";
-import Movies from "./Movies";
+import { actors } from "../data";
 
-function App() {
-  return <div>{/*{code here}*/}</div>;
+function Actors() {
+  return (
+  <div>
+    <h1>Actors Page</h1>
+    {actors.map((actor) => {
+      return (
+        <div key={actor.name}>
+          <h2>Name: {actor.name}</h2>
+          <p>Movies:</p>
+          <ul>
+            {actor.movies.map((movie)=> {
+              return (
+                <li key={movie}>{movie}</li>
+              )
+            })}
+          </ul>
+        </div>  
+      )
+    })}
+  </div>);
 }
 
-export default App;
+export default Actors;
